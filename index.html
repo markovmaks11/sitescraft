@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional websites for your business. Fast, responsive, and affordable. Get your custom website today!">
+    <title>SitesCraft | Professional Websites for Your Business</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header__logo">
+                <a href="#hero" class="logo">Sites<span class="logo__accent">Craft</span></a>
+            </div>
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    <li><a href="#services" class="nav__link">Services</a></li>
+                    <li><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                    <li><a href="#pricing" class="nav__link">Pricing</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn btn--primary header__btn">Get Quote →</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero__content">
+                <span class="hero__badge">🚀 Launch Your Online Presence</span>
+                <h1 class="hero__title">Professional Websites That <span class="gradient-text">Convert</span></h1>
+                <p class="hero__text">We build fast, responsive, and SEO-friendly websites tailored to your business. Starting from just $499.</p>
+                <div class="hero__buttons">
+                    <a href="#contact" class="btn btn--primary btn--large">Start Your Project →</a>
+                    <a href="#portfolio" class="btn btn--outline btn--large">View Portfolio</a>
+                </div>
+                <div class="hero__stats">
+                    <div class="stat">
+                        <span class="stat__number">50+</span>
+                        <span class="stat__label">Websites Delivered</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number">100%</span>
+                        <span class="stat__label">Client Satisfaction</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number">24/7</span>
+                        <span class="stat__label">Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__badge">What I Offer</span>
+                <h2 class="section__title">Services Tailored to Your Needs</h2>
+                <p class="section__subtitle">From simple landing pages to complex business websites — I've got you covered.</p>
+            </div>
+            <div class="services__grid">
+                <div class="service-card">
+                    <div class="service-card__icon">🌐</div>
+                    <h3 class="service-card__title">Landing Pages</h3>
+                    <p class="service-card__desc">High-converting landing pages for products, events, or lead generation.</p>
+                    <div class="service-card__price">From $99</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🏢</div>
+                    <h3 class="service-card__title">Business Websites</h3>
+                    <p class="service-card__desc">Multi-page websites with company info, services, and contact forms.</p>
+                    <div class="service-card__price">From $199</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🛒</div>
+                    <h3 class="service-card__title">E-commerce</h3>
+                    <p class="service-card__desc">Online stores with product catalog, cart, and payment integration.</p>
+                    <div class="service-card__price">From $499</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">⚡</div>
+                    <h3 class="service-card__title">Maintenance & Support</h3>
+                    <p class="service-card__desc">Regular updates, backups, security, and technical support.</p>
+                    <div class="service-card__price">From $49/mo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section - Dynamic -->
+<section class="portfolio" id="portfolio">
+    <div class="container">
+        <div class="section__header">
+            <span class="section__badge">🎨 My Work</span>
+            <h2 class="section__title">Recent Projects</h2>
+            <p class="section__subtitle">Real websites I've built for real clients</p>
+        </div>
+        
+        <div class="portfolio__grid" id="portfolioGrid">
+            <div class="portfolio__loading">
+                <div class="loader"></div>
+                <p>Loading portfolio...</p>
+            </div>
+        </div>
+        
+        <!-- Админ-кнопка добавления (видна только в админ-режиме) -->
+        <div id="addProjectBtn" class="add-project-btn" style="display: none;" onclick="openAddProjectModal()">
+            <div class="add-project__plus">+</div>
+            <span>Add Work</span>
+        </div>
+    </div>
+</section>
+
+<!-- Модальное окно для добавления работы -->
+<div id="modalAddProject" class="service-modal">
+    <div class="service-modal__content">
+        <div class="service-modal__header">
+            <h2>➕ Add New Project</h2>
+            <button class="service-modal__close" onclick="closeModal('modalAddProject')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <div class="form__group">
+                <label class="form__label">Project Title *</label>
+                <input type="text" id="projectTitle" class="form__input" placeholder="e.g., CandyShop">
+            </div>
+            <div class="form__group">
+                <label class="form__label">Category *</label>
+                <select id="projectCategory" class="form__input">
+                    <option value="E-commerce">🛒 E-commerce</option>
+                    <option value="Business">🏢 Business</option>
+                    <option value="Landing Page">🚀 Landing Page</option>
+                    <option value="Portfolio">🎨 Portfolio</option>
+                </select>
+            </div>
+            <div class="form__group">
+                <label class="form__label">Image URL *</label>
+                <input type="text" id="projectImageUrl" class="form__input" placeholder="https://images.unsplash.com/...">
+                <small style="color: #888;">Use free images from Unsplash, Pexels, or upload to ImgBB</small>
+            </div>
+            <div class="form__group">
+                <label class="form__label">Live Website URL (optional)</label>
+                <input type="text" id="projectLiveUrl" class="form__input" placeholder="https://example.com">
+            </div>
+            <div class="form__preview" id="imagePreview" style="display: none;">
+                <h4>Preview:</h4>
+                <img id="previewImg" src="" alt="Preview" style="max-width: 100%; border-radius: 12px; margin-top: 10px;">
+            </div>
+            <button class="btn btn--primary service-modal__btn" onclick="addNewProject()">Add Project →</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для удаления (подтверждение) -->
+<div id="modalDeleteProject" class="service-modal">
+    <div class="service-modal__content" style="max-width: 400px;">
+        <div class="service-modal__header">
+            <h2>⚠️ Delete Project</h2>
+            <button class="service-modal__close" onclick="closeModal('modalDeleteProject')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <p style="color: white; text-align: center; margin-bottom: 20px;">Are you sure you want to delete this project?</p>
+            <p id="deleteProjectName" style="color: #ffd700; text-align: center; margin-bottom: 20px;"></p>
+            <div style="display: flex; gap: 15px;">
+                <button class="btn btn--outline" style="flex: 1;" onclick="closeModal('modalDeleteProject')">Cancel</button>
+                <button class="btn btn--primary" style="flex: 1; background: #ff4444;" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__badge">Simple Pricing</span>
+                <h2 class="section__title">Choose the Perfect Plan</h2>
+                <p class="section__subtitle">No hidden fees. Pay once or subscribe — you're in control.</p>
+            </div>
+            <div class="pricing__grid">
+                <div class="pricing-card">
+                    <div class="pricing-card__icon">📄</div>
+                    <h3 class="pricing-card__title">Basic</h3>
+                    <div class="pricing-card__price">$99</div>
+                    <p class="pricing-card__period">one-time payment</p>
+                    <ul class="pricing-card__features">
+                        <li>✓ 1-page website</li>
+                        <li>✓ Mobile responsive</li>
+                        <li>✓ Contact form</li>
+                        <li>✓ Social media links</li>
+                        <li>✓ 1 round of revisions</li>
+                    </ul>
+                    <a href="#contact" class="btn btn--outline pricing-card__btn">Get Started</a>
+                </div>
+                <div class="pricing-card pricing-card--popular">
+                    <div class="popular-badge">🔥 Most Popular</div>
+                    <div class="pricing-card__icon">🏢</div>
+                    <h3 class="pricing-card__title">Pro</h3>
+                    <div class="pricing-card__price">$299</div>
+                    <p class="pricing-card__period">one-time payment</p>
+                    <ul class="pricing-card__features">
+                        <li>✓ Up to 5 pages</li>
+                        <li>✓ Mobile responsive</li>
+                        <li>✓ Contact form</li>
+                        <li>✓ SEO optimization</li>
+                        <li>✓ Google Analytics setup</li>
+                        <li>✓ 3 rounds of revisions</li>
+                        <li>✓ 1 month free support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn--primary pricing-card__btn">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-card__icon">🛒</div>
+                    <h3 class="pricing-card__title">Premium</h3>
+                    <div class="pricing-card__price">$499</div>
+                    <p class="pricing-card__period">one-time payment</p>
+                    <ul class="pricing-card__features">
+                        <li>✓ Up to 10 pages</li>
+                        <li>✓ E-commerce functionality</li>
+                        <li>✓ Payment integration</li>
+                        <li>✓ Mobile responsive</li>
+                        <li>✓ Advanced SEO</li>
+                        <li>✓ Unlimited revisions</li>
+                        <li>✓ 3 months free support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn--outline pricing-card__btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== АКЦИЯ: ПЕРВЫЕ 5 ЗАКАЗОВ БЕСПЛАТНО ========== -->
+<section class="promo-banner">
+    <div class="container">
+        <div class="promo-banner__content">
+            <div class="promo-banner__icon">🎉</div>
+            <div class="promo-banner__text">
+                <h3>🔥 SPECIAL OFFER: FIRST 5 ORDERS FREE! 🔥</h3>
+                <p>Limited time launch promotion — don't miss out!</p>
+            </div>
+            <button class="promo-banner__btn" id="promoDetailsBtn">More details→</button>
+        </div>
+    </div>
+</section>
+
+<!-- Модальное окно для акции -->
+<div id="modalPromo" class="service-modal">
+    <div class="service-modal__content promo-modal">
+        <div class="service-modal__header promo-modal__header">
+            <h2>🎁 SPECIAL LAUNCH PROMOTION! 🎁</h2>
+            <button class="service-modal__close" onclick="closeModal('modalPromo')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <div class="promo-modal__badge">
+                <span>🔥 LIMITED TIME OFFER 🔥</span>
+            </div>
+            
+            <div class="promo-modal__title">
+                FIRST 5 ORDERS — COMPLETELY FREE!
+            </div>
+            
+            <div class="promo-modal__description">
+                <p>In celebration of our grand launch, we're offering <strong>5 lucky customers</strong> a completely free website!</p>
+                <p>No hidden fees, no catches — just a professional, high-quality website built for you at no cost.</p>
+            </div>
+            
+            <div class="promo-modal__terms">
+                <h3>📋 Terms & Conditions:</h3>
+                <ul>
+                    <li>✓ Offer valid for the first 5 orders only</li>
+                    <li>✓ Applies to <strong>services only</strong> (Landing Pages, Business Websites, E-commerce, Maintenance)</li>
+                    <li>✓ <strong>Not applicable</strong> to Basic, Pro, or Premium packages</li>
+                    <li>✓ Free service includes: design, development, and 1 month support</li>
+                    <li>✓ Client provides content (text, images, branding)</li>
+                    <li>✓ Offer cannot be combined with other discounts</li>
+                    <li>✓ Valid for new customers only</li>
+                </ul>
+            </div>
+            
+            <div class="promo-modal__countdown">
+                <h3>⏰ Remaining free slots:</h3>
+                <div class="countdown-slots">
+                    <span class="slot">5</span>
+                    <span class="slot-label">spots left!</span>
+                </div>
+            </div>
+            
+            <div class="promo-modal__bonus">
+                <span>🚀 How to claim:</span>
+                <p>Contact us now and mention "LAUNCH PROMO" to secure your free website!</p>
+            </div>
+            
+            <button class="btn btn--primary service-modal__btn" onclick="scrollToContact(); closeModal('modalPromo');">Claim Your Free Website →</button>
+        </div>
+    </div>
+</div>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__badge">How It Works</span>
+                <h2 class="section__title">Simple 4-Step Process</h2>
+                <p class="section__subtitle">From idea to launch — fast and transparent.</p>
+            </div>
+            <div class="process__steps">
+                <div class="step">
+                    <div class="step__number">01</div>
+                    <h3 class="step__title">Discovery Call</h3>
+                    <p class="step__desc">We discuss your goals, audience, and design preferences.</p>
+                </div>
+                <div class="step">
+                    <div class="step__number">02</div>
+                    <h3 class="step__title">Design & Development</h3>
+                    <p class="step__desc">I create a custom design and build your website.</p>
+                </div>
+                <div class="step">
+                    <div class="step__number">03</div>
+                    <h3 class="step__title">Review & Feedback</h3>
+                    <p class="step__desc">You review the website and request any changes.</p>
+                </div>
+                <div class="step">
+                    <div class="step__number">04</div>
+                    <h3 class="step__title">Launch & Support</h3>
+                    <p class="step__desc">Your website goes live, and I provide ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Reviews Section - Horizontal Slider -->
+<section class="reviews" id="reviews">
+    <div class="container">
+        <div class="section__header">
+            <span class="section__badge">💬 Client Reviews</span>
+            <h2 class="section__title">What Our Clients Say</h2>
+            <p class="section__subtitle">Share your experience with us</p>
+        </div>
+
+        <!-- Форма для добавления отзыва -->
+        <div class="review-form">
+            <h3 class="review-form__title">Leave a Review</h3>
+            <div class="review-form__grid">
+                <input type="text" id="reviewName" class="form__input" placeholder="Your name *" required>
+                <input type="text" id="reviewCity" class="form__input" placeholder="Your city">
+            </div>
+            
+            <div class="rating-input">
+                <span class="rating-label">Your rating:</span>
+                <div class="stars" id="starRating">
+                    <span data-value="1" class="star">☆</span>
+                    <span data-value="2" class="star">☆</span>
+                    <span data-value="3" class="star">☆</span>
+                    <span data-value="4" class="star">☆</span>
+                    <span data-value="5" class="star">☆</span>
+                </div>
+                <input type="hidden" id="reviewRating" value="5">
+            </div>
+            
+            <textarea id="reviewText" class="form__textarea" placeholder="Your review * (min 10 characters)" rows="4" required></textarea>
+            
+            <div class="review-form__buttons">
+                <button id="submitReview" class="btn btn--primary">Submit Review →</button>
+            </div>
+            <div id="reviewStatus" class="review-status"></div>
+        </div>
+
+        <!-- Админ-панель (только для вас) -->
+        <div id="adminPanel" class="admin-panel" style="display: none;">
+            <div class="admin-panel__header">
+                <span>🔐 Admin Panel</span>
+                <button id="toggleAdminMode" class="admin-panel__toggle">Exit Admin Mode</button>
+            </div>
+            <div class="admin-panel__info">
+                <p>You can delete reviews or reply to them. Your responses will appear with an "Admin" badge.</p>
+            </div>
+        </div>
+
+        <!-- Горизонтальный слайдер отзывов -->
+        <div class="reviews-slider">
+            <button class="slider-arrow slider-arrow--prev" id="prevReview">‹</button>
+            
+            <div class="slider-container">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="reviews__loading">
+                        <div class="loader"></div>
+                        <p>Loading reviews...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="slider-arrow slider-arrow--next" id="nextReview">›</button>
+        </div>
+        
+        <!-- Индикатор текущего отзыва -->
+        <div class="slider-dots" id="sliderDots"></div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact__wrapper">
+                <div class="contact__info">
+                    <span class="section__badge">Get In Touch</span>
+                    <h2 class="contact__title">Let's Build Your Website</h2>
+                    <p class="contact__text">Ready to take your business online? Fill out the form and I'll get back to you within 24 hours.</p>
+                    <div class="contact__details">
+                        <div class="contact__item">
+                            <span class="contact__icon">✉️</span>
+                            <span>hello@sitescraft.com</span>
+                        </div>
+                        <div class="contact__item">
+                            <span class="contact__icon">📞</span>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact__item">
+                            <span class="contact__icon">💬</span>
+                            <span>Live chat (9am - 6pm EST)</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact__form" id="contactForm">
+                    <div class="form__group">
+                        <input type="text" id="name" class="form__input" placeholder="Your name" required>
+                    </div>
+                    <div class="form__group">
+                        <input type="email" id="email" class="form__input" placeholder="Your email" required>
+                    </div>
+                    <div class="form__group">
+                        <select id="service" class="form__input">
+                            <option value="">Select service</option>
+                            <option value="landing">Landing Page ($299)</option>
+                            <option value="business">Business Website ($799)</option>
+                            <option value="ecommerce">E-commerce ($1,499)</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <textarea id="message" class="form__textarea" placeholder="Tell me about your project..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--large btn--full">Send Message →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__logo">
+                    <a href="#hero" class="logo">Sites<span class="logo__accent">Craft</span></a>
+                    <p class="footer__desc">Building professional websites that help businesses grow online.</p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Follow Me</h4>
+                        <ul>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2025 SitesCraft. All rights reserved. Designed and built with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- ========== МОДАЛЬНЫЕ ОКНА ДЛЯ УСЛУГ ========== -->
+
+<!-- Модальное окно: Landing Pages -->
+<div id="modalLanding" class="service-modal">
+    <div class="service-modal__content">
+        <div class="service-modal__header">
+            <h2>🚀 Landing Page Package</h2>
+            <button class="service-modal__close" onclick="closeModal('modalLanding')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <div class="service-modal__price">From $99</div>
+            <div class="service-modal__description">
+                <p>A high-converting landing page designed to turn visitors into customers. Perfect for product launches, events, or lead generation.</p>
+            </div>
+            <div class="service-modal__features">
+                <h3>What's included:</h3>
+                <ul>
+                    <li>✓ 1-page custom design</li>
+                    <li>✓ Mobile responsive layout</li>
+                    <li>✓ Contact/lead capture form</li>
+                    <li>✓ Social media integration</li>
+                    <li>✓ Google Analytics setup</li>
+                    <li>✓ SEO optimization</li>
+                    <li>✓ Fast loading (5s guarantee)</li>
+                    <li>✓ 1 month free support</li>
+                </ul>
+            </div>
+            <div class="service-modal__bonus">
+                <span>🎁 Bonus:</span> Free hosting for the first 3 months!
+            </div>
+            <button class="btn btn--primary service-modal__btn" onclick="scrollToContact()">Get Started →</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: Business Websites -->
+<div id="modalBusiness" class="service-modal">
+    <div class="service-modal__content">
+        <div class="service-modal__header">
+            <h2>🏢 Business Website Package</h2>
+            <button class="service-modal__close" onclick="closeModal('modalBusiness')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <div class="service-modal__price">From $199</div>
+            <div class="service-modal__description">
+                <p>A professional multi-page website that establishes your brand online and helps you grow your business.</p>
+            </div>
+            <div class="service-modal__features">
+                <h3>What's included:</h3>
+                <ul>
+                    <li>✓ Up to 5 custom pages</li>
+                    <li>✓ Mobile responsive design</li>
+                    <li>✓ Contact forms with email integration</li>
+                    <li>✓ About, Services, Contact pages</li>
+                    <li>✓ Social media integration</li>
+                    <li>✓ Google Maps integration</li>
+                    <li>✓ Advanced SEO setup</li>
+                    <li>✓ Google Analytics & Search Console</li>
+                    <li>✓ 3 rounds of revisions</li>
+                    <li>✓ 3 months free support</li>
+                </ul>
+            </div>
+            <div class="service-modal__bonus">
+                <span>🎁 Bonus:</span> Free logo design + 6 months hosting!
+            </div>
+            <button class="btn btn--primary service-modal__btn" onclick="scrollToContact()">Get Started →</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: E-commerce -->
+<div id="modalEcommerce" class="service-modal">
+    <div class="service-modal__content">
+        <div class="service-modal__header">
+            <h2>🛒 E-commerce Package</h2>
+            <button class="service-modal__close" onclick="closeModal('modalEcommerce')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <div class="service-modal__price">From $499</div>
+            <div class="service-modal__description">
+                <p>A fully functional online store that makes selling easy. Perfect for products, digital goods, or subscriptions.</p>
+            </div>
+            <div class="service-modal__features">
+                <h3>What's included:</h3>
+                <ul>
+                    <li>✓ Up to 50 products</li>
+                    <li>✓ Shopping cart & checkout</li>
+                    <li>✓ Payment gateway integration (Stripe/PayPal)</li>
+                    <li>✓ Product categories & filters</li>
+                    <li>✓ Customer accounts & order history</li>
+                    <li>✓ Inventory management</li>
+                    <li>✓ Email notifications</li>
+                    <li>✓ Mobile responsive design</li>
+                    <li>✓ Advanced SEO for products</li>
+                    <li>✓ Unlimited revisions</li>
+                    <li>✓ 6 months free support</li>
+                </ul>
+            </div>
+            <div class="service-modal__bonus">
+                <span>🎁 Bonus:</span> Free SSL certificate + 1 year hosting + $50 Google Ads credit!
+            </div>
+            <button class="btn btn--primary service-modal__btn" onclick="scrollToContact()">Get Started →</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: Maintenance & Support -->
+<div id="modalMaintenance" class="service-modal">
+    <div class="service-modal__content">
+        <div class="service-modal__header">
+            <h2>⚡ Maintenance & Support</h2>
+            <button class="service-modal__close" onclick="closeModal('modalMaintenance')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <div class="service-modal__price">From $49/month</div>
+            <div class="service-modal__description">
+                <p>Keep your website secure, fast, and up-to-date with our professional maintenance service.</p>
+            </div>
+            <div class="service-modal__features">
+                <h3>What's included:</h3>
+                <ul>
+                    <li>✓ Weekly backups</li>
+                    <li>✓ Security monitoring</li>
+                    <li>✓ Plugin/software updates</li>
+                    <li>✓ 24/7 uptime monitoring</li>
+                    <li>✓ Monthly performance report</li>
+                    <li>✓ Content updates (up to 5 pages/month)</li>
+                    <li>✓ Bug fixes & troubleshooting</li>
+                    <li>✓ Priority email support (24h response)</li>
+                    <li>✓ Security scanning & malware removal</li>
+                </ul>
+            </div>
+            <div class="service-modal__bonus">
+                <span>🎁 Bonus:</span> Free speed optimization with annual plan!
+            </div>
+            <button class="btn btn--primary service-modal__btn" onclick="scrollToContact()">Get Started →</button>
+        </div>
+    </div>
+</div>
+<!-- ========== МОДАЛЬНЫЕ ОКНА ДЛЯ ПАКЕТОВ ЦЕН ========== -->
+
+<!-- Модальное окно: Basic Package -->
+<div id="modalBasic" class="service-modal">
+    <div class="service-modal__content">
+        <div class="service-modal__header">
+            <h2>📄 Basic Package</h2>
+            <button class="service-modal__close" onclick="closeModal('modalBasic')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <div class="service-modal__price">$99 <span style="font-size: 14px; color: #888;">one-time</span></div>
+            <div class="service-modal__description">
+                <p>Perfect for startups and small businesses who need a professional online presence without breaking the bank.</p>
+            </div>
+            <div class="service-modal__features">
+                <h3>📋 What's included:</h3>
+                <ul>
+                    <li>✓ 1-page responsive website</li>
+                    <li>✓ Custom design tailored to your brand</li>
+                    <li>✓ Contact form with email integration</li>
+                    <li>✓ Social media links integration</li>
+                    <li>✓ Mobile-friendly layout</li>
+                    <li>✓ SEO basics (meta tags, alt text)</li>
+                    <li>✓ Google Analytics setup</li>
+                    <li>✓ 1 round of revisions</li>
+                    <li>✓ 1 month free support</li>
+                    <li>✓ Fast loading optimization</li>
+                </ul>
+            </div>
+            <div class="service-modal__timeline">
+                <h3>⏱️ Timeline:</h3>
+                <p>Delivery in 5-7 business days</p>
+            </div>
+            <div class="service-modal__bonus">
+                <span>🎁 Bonus:</span> Free domain name registration (1 year)!
+            </div>
+            <button class="btn btn--primary service-modal__btn" onclick="scrollToContact()">Get Started →</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: Pro Package -->
+<div id="modalPro" class="service-modal">
+    <div class="service-modal__content">
+        <div class="service-modal__header">
+            <h2>🔥 Pro Package <span style="font-size: 14px;">(Most Popular)</span></h2>
+            <button class="service-modal__close" onclick="closeModal('modalPro')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <div class="service-modal__price">$299 <span style="font-size: 14px; color: #888;">one-time</span></div>
+            <div class="service-modal__description">
+                <p>The complete solution for growing businesses. Includes everything you need to stand out online and convert visitors into customers.</p>
+            </div>
+            <div class="service-modal__features">
+                <h3>📋 Everything in Basic, plus:</h3>
+                <ul>
+                    <li>✓ Up to 5 custom pages</li>
+                    <li>✓ Advanced SEO optimization</li>
+                    <li>✓ Blog integration (optional)</li>
+                    <li>✓ Google Search Console setup</li>
+                    <li>✓ XML sitemap generation</li>
+                    <li>✓ Performance optimization (90+ score)</li>
+                    <li>✓ Custom contact forms (up to 3)</li>
+                    <li>✓ Google Maps integration</li>
+                    <li>✓ Social media feed integration</li>
+                    <li>✓ Newsletter signup integration</li>
+                    <li>✓ 3 rounds of revisions</li>
+                    <li>✓ 3 months free support</li>
+                </ul>
+            </div>
+            <div class="service-modal__features">
+                <h3>🚀 Additional Benefits:</h3>
+                <ul>
+                    <li>✓ Priority email support (12h response)</li>
+                    <li>✓ Monthly performance report</li>
+                    <li>✓ Security monitoring</li>
+                </ul>
+            </div>
+            <div class="service-modal__timeline">
+                <h3>⏱️ Timeline:</h3>
+                <p>Delivery in 10-14 business days</p>
+            </div>
+            <div class="service-modal__bonus">
+                <span>🎁 Bonus:</span> Free logo design + 6 months hosting + $50 Google Ads credit!
+            </div>
+            <button class="btn btn--primary service-modal__btn" onclick="scrollToContact()">Get Started →</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: Premium Package -->
+<div id="modalPremium" class="service-modal">
+    <div class="service-modal__content">
+        <div class="service-modal__header">
+            <h2>👑 Premium Package</h2>
+            <button class="service-modal__close" onclick="closeModal('modalPremium')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <div class="service-modal__price">$499 <span style="font-size: 14px; color: #888;">one-time</span></div>
+            <div class="service-modal__description">
+                <p>The ultimate package for established businesses and e-commerce stores. Get a fully-featured website with advanced functionality.</p>
+            </div>
+            <div class="service-modal__features">
+                <h3>📋 Everything in Pro, plus:</h3>
+                <ul>
+                    <li>✓ Up to 10 custom pages</li>
+                    <li>✓ E-commerce functionality</li>
+                    <li>✓ Payment gateway integration (Stripe/PayPal)</li>
+                    <li>✓ Product catalog (up to 50 items)</li>
+                    <li>✓ Shopping cart & checkout</li>
+                    <li>✓ Customer accounts & order history</li>
+                    <li>✓ Inventory management system</li>
+                    <li>✓ Email notifications for orders</li>
+                    <li>✓ Advanced product filtering</li>
+                    <li>✓ Product reviews & ratings</li>
+                    <li>✓ Discount/coupon code system</li>
+                    <li>✓ Abandoned cart recovery</li>
+                </ul>
+            </div>
+            <div class="service-modal__features">
+                <h3>🚀 Premium Benefits:</h3>
+                <ul>
+                    <li>✓ Unlimited revisions</li>
+                    <li>✓ Priority 24/7 support (6h response)</li>
+                    <li>✓ Weekly backups</li>
+                    <li>✓ Advanced security features</li>
+                    <li>✓ Performance optimization (95+ score)</li>
+                </ul>
+            </div>
+            <div class="service-modal__timeline">
+                <h3>⏱️ Timeline:</h3>
+                <p>Delivery in 15-20 business days</p>
+            </div>
+            <div class="service-modal__bonus">
+                <span>🎁 Bonus:</span> Free SSL certificate + 1 year hosting + $100 Google Ads credit + Free business email!
+            </div>
+            <button class="btn btn--primary service-modal__btn" onclick="scrollToContact()">Get Started →</button>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно детального просмотра проекта -->
+<div id="modalProjectDetail" class="service-modal project-modal">
+    <div class="service-modal__content project-modal__content">
+        <div class="service-modal__header project-modal__header">
+            <h2 id="projectDetailTitle">Project Title</h2>
+            <button class="service-modal__close" onclick="closeModal('modalProjectDetail')">&times;</button>
+        </div>
+        <div class="project-modal__body">
+            <!-- Левая часть: Галерея -->
+            <div class="project-modal__gallery">
+                <div class="gallery-main">
+                    <img id="galleryMainImg" src="" alt="Main image">
+                </div>
+                <div class="gallery-thumbs" id="galleryThumbs">
+                    <!-- Миниатюры будут здесь -->
+                </div>
+            </div>
+            
+            <!-- Правая часть: Информация -->
+            <div class="project-modal__info">
+                <div class="project-info__category">
+                    <span id="projectDetailCategory" class="category-badge">Website</span>
+                </div>
+                <h3 class="project-info__title">About the project</h3>
+                <p id="projectDetailDescription" class="project-info__description">
+                    Project description will appear here...
+                </p>
+                <div class="project-info__price">
+                    <span class="price-label">Price:</span>
+                    <span id="projectDetailPrice" class="price-value">$XXX</span>
+                </div>
+                <div class="project-info__actions">
+                    <a id="projectDetailLink" href="#" target="_blank" class="btn btn--primary">Live Demo →</a>
+                    <button onclick="closeModal('modalProjectDetail')" class="btn btn--outline">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ========== МОДАЛЬНОЕ ОКНО ДЛЯ ДОБАВЛЕНИЯ ПРОЕКТА ========== -->
+<div id="modalAddProject" class="service-modal">
+    <div class="service-modal__content" style="max-width: 700px;">
+        <div class="service-modal__header">
+            <h2>➕ Add New Project</h2>
+            <button class="service-modal__close" onclick="closeModal('modalAddProject')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <div class="form__group">
+                <label class="form__label">Project Title *</label>
+                <input type="text" id="projectTitle" class="form__input" placeholder="e.g., CandyShop">
+            </div>
+            
+            <div class="form__group">
+                <label class="form__label">Category *</label>
+                <select id="projectCategory" class="form__input">
+                    <option value="E-commerce">🛒 E-commerce</option>
+                    <option value="Business">🏢 Business</option>
+                    <option value="Landing Page">🚀 Landing Page</option>
+                    <option value="Portfolio">🎨 Portfolio</option>
+                    <option value="Blog">📝 Blog</option>
+                </select>
+            </div>
+            
+            <div class="form__group">
+                <label class="form__label">Main Image URL *</label>
+                <input type="text" id="projectImageUrl" class="form__input" placeholder="https://images.unsplash.com/...">
+                <small style="color: #888; display: block; margin-top: 5px;">Use free images from Unsplash, Pexels, or upload to ImgBB</small>
+            </div>
+            
+            <div class="form__group">
+                <label class="form__label">Gallery Images (optional)</label>
+                <input type="text" id="projectGallery" class="form__input" placeholder="https://image1.jpg, https://image2.jpg, https://image3.jpg">
+                <small style="color: #888; display: block; margin-top: 5px;">Separate multiple URLs with commas</small>
+            </div>
+            
+            <div class="form__group">
+                <label class="form__label">Live Website URL (optional)</label>
+                <input type="text" id="projectLiveUrl" class="form__input" placeholder="https://example.com">
+            </div>
+            
+            <div class="form__group">
+                <label class="form__label">Description *</label>
+                <textarea id="projectDescription" class="form__textarea" rows="3" placeholder="Describe the project, technologies used, challenges solved..."></textarea>
+            </div>
+            
+            <div class="form__group">
+                <label class="form__label">Price</label>
+                <input type="text" id="projectPrice" class="form__input" placeholder="$2,999 or Contact for price">
+            </div>
+            
+            <div class="form__preview" id="imagePreview" style="display: none;">
+                <h4 style="color: white;">Preview:</h4>
+                <img id="previewImg" src="" alt="Preview" style="max-width: 100%; border-radius: 12px; margin-top: 10px;">
+            </div>
+            
+            <button class="btn btn--primary service-modal__btn" onclick="addNewProject()">Add Project →</button>
+        </div>
+    </div>
+</div>
+
+<!-- ========== МОДАЛЬНОЕ ОКНО ДЛЯ ПОДТВЕРЖДЕНИЯ УДАЛЕНИЯ ========== -->
+<div id="modalDeleteProject" class="service-modal">
+    <div class="service-modal__content" style="max-width: 400px;">
+        <div class="service-modal__header">
+            <h2>⚠️ Delete Project</h2>
+            <button class="service-modal__close" onclick="closeModal('modalDeleteProject')">&times;</button>
+        </div>
+        <div class="service-modal__body">
+            <p style="color: white; text-align: center; margin-bottom: 20px;">Are you sure you want to delete this project?</p>
+            <p id="deleteProjectName" style="color: #ffd700; text-align: center; margin-bottom: 20px; font-weight: bold;"></p>
+            <div style="display: flex; gap: 15px;">
+                <button class="btn btn--outline" style="flex: 1;" onclick="closeModal('modalDeleteProject')">Cancel</button>
+                <button class="btn btn--primary" style="flex: 1; background: #ff4444;" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== МОДАЛЬНОЕ ОКНО ДЕТАЛЬНОГО ПРОСМОТРА ПРОЕКТА ========== -->
+<div id="modalProjectDetail" class="service-modal project-modal">
+    <div class="service-modal__content project-modal__content">
+        <div class="service-modal__header project-modal__header">
+            <h2 id="projectDetailTitle">Project Title</h2>
+            <button class="service-modal__close" onclick="closeModal('modalProjectDetail')">&times;</button>
+        </div>
+        <div class="project-modal__body">
+            <!-- Левая часть: Галерея -->
+            <div class="project-modal__gallery">
+                <div class="gallery-main">
+                    <img id="galleryMainImg" src="" alt="Main image">
+                </div>
+                <div class="gallery-thumbs" id="galleryThumbs">
+                    <!-- Миниатюры будут здесь -->
+                </div>
+            </div>
+            
+            <!-- Правая часть: Информация -->
+            <div class="project-modal__info">
+                <div class="project-info__category">
+                    <span id="projectDetailCategory" class="category-badge">Website</span>
+                </div>
+                <h3 class="project-info__title">About the project</h3>
+                <p id="projectDetailDescription" class="project-info__description">
+                    Project description will appear here...
+                </p>
+                <div class="project-info__price">
+                    <span class="price-label">Price:</span>
+                    <span id="projectDetailPrice" class="price-value">$XXX</span>
+                </div>
+                <div class="project-info__actions">
+                    <a id="projectDetailLink" href="#" target="_blank" class="btn btn--primary">Live Demo →</a>
+                    <button onclick="closeModal('modalProjectDetail')" class="btn btn--outline">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
